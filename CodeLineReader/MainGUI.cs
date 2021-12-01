@@ -8,6 +8,16 @@ namespace CodeLineReader
 {
 	public partial class MainGUI : Form
 	{
+		/// <summary>
+		/// 排除扫描的文件名
+		/// </summary>
+		private List<string> excludeFileNames = new List<string>(new string[] { ".gitignore", "LICENSE", "README.md" });
+
+		/// <summary>
+		/// 排除扫描的文件夹名
+		/// </summary>
+		private List<string> excludeDirectoryNames = new List<string>(new string[] { ".git", ".idea", "node_modules" });
+
 		public MainGUI()
 		{
 			InitializeComponent();
@@ -43,8 +53,7 @@ namespace CodeLineReader
 				string filePath = dialog.SelectedPath;
 				dirPath.Text = filePath;
 				// 开始执行读取操作
-				List<string> files = new List<string>();
-				string[] getFiles = DirectoryUtils.GetAllFilesInDirectory(filePath);
+				string[] getFiles = DirectoryUtils.GetAllFilesInDirectory(filePath, excludeFileNames.ToArray(), excludeDirectoryNames.ToArray());
 				// 执行遍历并加入到treeview
 				TreeNode rootNode = resultTreeView.Nodes[0];
 				rootNode.Nodes.Clear();
@@ -104,6 +113,11 @@ namespace CodeLineReader
 				string filePath = dirPath.Text + "\\" + e.Node.FullPath.Replace(resultTreeView.Nodes[0].Text, "");
 				new FileReader(filePath).Show();
 			}
+		}
+
+		private void excludeButton_Click(object sender, EventArgs e)
+		{
+			new ExcludeDialog().ShowExcludeDialog(excludeFileNames, excludeDirectoryNames);
 		}
 	}
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("代码工程量查看器")]
-[assembly: AssemblyDescription("用于获取项目工程的总代码量并浏览代码。")]
+[assembly: AssemblyTitle("代码工程量统计工具")]
+[assembly: AssemblyDescription("用于获取项目工程的总代码量并浏览复制代码。")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("swsk33")]
-[assembly: AssemblyProduct("代码工程量查看器")]
+[assembly: AssemblyProduct("代码工程量统计工具")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

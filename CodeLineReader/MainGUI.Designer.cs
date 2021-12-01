@@ -35,13 +35,14 @@ namespace CodeLineReader
 			this.openDirLabel = new System.Windows.Forms.Label();
 			this.openDir = new System.Windows.Forms.Button();
 			this.resultTreeView = new System.Windows.Forms.TreeView();
-			this.codeFileListLabel = new System.Windows.Forms.Label();
 			this.treeViewIcons = new System.Windows.Forms.ImageList(this.components);
+			this.codeFileListLabel = new System.Windows.Forms.Label();
 			this.lineCountTitle = new System.Windows.Forms.Label();
 			this.lineCountResult = new System.Windows.Forms.Label();
 			this.copyLineCount = new System.Windows.Forms.Button();
 			this.readingStatusLabel = new System.Windows.Forms.Label();
 			this.dirPath = new System.Windows.Forms.TextBox();
+			this.excludeButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// openDirLabel
@@ -56,9 +57,9 @@ namespace CodeLineReader
 			// 
 			// openDir
 			// 
-			this.openDir.Location = new System.Drawing.Point(300, 16);
+			this.openDir.Location = new System.Drawing.Point(280, 17);
 			this.openDir.Name = "openDir";
-			this.openDir.Size = new System.Drawing.Size(75, 25);
+			this.openDir.Size = new System.Drawing.Size(95, 23);
 			this.openDir.TabIndex = 2;
 			this.openDir.Text = "浏览";
 			this.openDir.UseVisualStyleBackColor = true;
@@ -81,6 +82,14 @@ namespace CodeLineReader
 			this.resultTreeView.TabIndex = 3;
 			this.resultTreeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.resultTreeView_NodeMouseDoubleClick);
 			// 
+			// treeViewIcons
+			// 
+			this.treeViewIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("treeViewIcons.ImageStream")));
+			this.treeViewIcons.TransparentColor = System.Drawing.Color.Transparent;
+			this.treeViewIcons.Images.SetKeyName(0, "root.png");
+			this.treeViewIcons.Images.SetKeyName(1, "directory.png");
+			this.treeViewIcons.Images.SetKeyName(2, "code.png");
+			// 
 			// codeFileListLabel
 			// 
 			this.codeFileListLabel.AutoSize = true;
@@ -89,14 +98,6 @@ namespace CodeLineReader
 			this.codeFileListLabel.Size = new System.Drawing.Size(89, 12);
 			this.codeFileListLabel.TabIndex = 4;
 			this.codeFileListLabel.Text = "代码文件列表：";
-			// 
-			// treeViewIcons
-			// 
-			this.treeViewIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("treeViewIcons.ImageStream")));
-			this.treeViewIcons.TransparentColor = System.Drawing.Color.Transparent;
-			this.treeViewIcons.Images.SetKeyName(0, "root.png");
-			this.treeViewIcons.Images.SetKeyName(1, "directory.png");
-			this.treeViewIcons.Images.SetKeyName(2, "code.png");
 			// 
 			// lineCountTitle
 			// 
@@ -146,8 +147,18 @@ namespace CodeLineReader
 			this.dirPath.Location = new System.Drawing.Point(86, 18);
 			this.dirPath.Name = "dirPath";
 			this.dirPath.ReadOnly = true;
-			this.dirPath.Size = new System.Drawing.Size(207, 21);
+			this.dirPath.Size = new System.Drawing.Size(188, 21);
 			this.dirPath.TabIndex = 1;
+			// 
+			// excludeButton
+			// 
+			this.excludeButton.Location = new System.Drawing.Point(279, 45);
+			this.excludeButton.Name = "excludeButton";
+			this.excludeButton.Size = new System.Drawing.Size(96, 23);
+			this.excludeButton.TabIndex = 2;
+			this.excludeButton.Text = "排除扫描列表";
+			this.excludeButton.UseVisualStyleBackColor = true;
+			this.excludeButton.Click += new System.EventHandler(this.excludeButton_Click);
 			// 
 			// MainGUI
 			// 
@@ -156,6 +167,7 @@ namespace CodeLineReader
 			this.ClientSize = new System.Drawing.Size(387, 325);
 			this.Controls.Add(this.codeFileListLabel);
 			this.Controls.Add(this.dirPath);
+			this.Controls.Add(this.excludeButton);
 			this.Controls.Add(this.copyLineCount);
 			this.Controls.Add(this.openDir);
 			this.Controls.Add(this.lineCountResult);
@@ -187,6 +199,7 @@ namespace CodeLineReader
 		private System.Windows.Forms.Button copyLineCount;
 		private System.Windows.Forms.Label readingStatusLabel;
 		private System.Windows.Forms.TextBox dirPath;
+		private System.Windows.Forms.Button excludeButton;
 	}
 }
 

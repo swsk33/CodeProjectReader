@@ -8,7 +8,7 @@
     <ProjectGuid>{70D702E9-9F65-4774-BD3F-F4D2E40C435D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CodeLineReader</RootNamespace>
-    <AssemblyName>代码工程量查看器</AssemblyName>
+    <AssemblyName>代码工程量统计工具</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -44,14 +44,22 @@
     <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
     </Reference>
-    <Reference Include="ReadAndWriteSharp, Version=3.2.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Swsk33.ReadAndWriteSharp.3.2.5\lib\net45\ReadAndWriteSharp.dll</HintPath>
+    <Reference Include="ReadAndWriteSharp, Version=3.3.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swsk33.ReadAndWriteSharp.3.3.5\lib\net45\ReadAndWriteSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcludeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExcludeDialog.Designer.cs">
+      <DependentUpon>ExcludeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileReader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +74,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextEdit.Designer.cs">
+      <DependentUpon>TextEdit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ExcludeDialog.resx">
+      <DependentUpon>ExcludeDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileReader.resx">
       <DependentUpon>FileReader.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +98,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TextEdit.resx">
+      <DependentUpon>TextEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
